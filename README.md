@@ -1,13 +1,44 @@
-# Sample Hardhat Project
+# ToDo-DApp
+***Frontend and backend***
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, and a script that deploys that contract.
+## About
+The backend implementation of the smart contract along with the frontend app.  
+Currently, only hardhat, local node and **goerli testnet** are supported.
 
-Try running some of the following tasks:
+## Instructions
+To deploy the smart contract, clone this repository and open a terminal in the root directory:
 
-```shell
-npx hardhat help
-npx hardhat test
-REPORT_GAS=true npx hardhat test
-npx hardhat node
-npx hardhat run scripts/deploy.js
+**Step 1:**
+```powershell
+$ npm install
+```
+**Step 2:**  
+Make sure that the tests are passing.
+```powershell
+$ npm run test:unit
+```
+**Step 3:**  
+To deploy on goerli testnet,
+```powershell
+$ npm run deploy:goerli
+```
+
+To deploy locally, run the localhost node in another terminal.
+```powershell
+$ npm run network:localhost
+```
+Then deploy on localhost node.
+```powershell
+$ npm run deploy:localhost
+```
+
+For more functionality, check out the scripts in `./package.json`.
+
+## Note
+Add your own *.env* file with the following:
+```env
+WALLET_PRIVATE_KEY = <your_wallet_private_key>
+API_KEY = <your_etherscan_code_verification_key>
+COINMARKETCAP_API_KEY = <your_coinmarketcap_key>
+UPDATE_FRONTEND = true
 ```
