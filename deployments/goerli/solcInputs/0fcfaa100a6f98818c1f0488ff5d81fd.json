@@ -1,0 +1,35 @@
+{
+  "language": "Solidity",
+  "sources": {
+    "contracts/ToDo.sol": {
+      "content": "// SPDX-License-Identifier: MIT\r\n\r\npragma solidity ^0.8.0;\r\n\r\ncontract ToDo {\r\n    struct Task {\r\n        uint256 id;\r\n        string name;\r\n        bool isCompleted;\r\n        address user;\r\n    }\r\n\r\n    Task[] private tasks;\r\n\r\n    function addTask(string memory _name) public {\r\n        tasks.push(Task(tasks.length, _name, false, msg.sender));\r\n    }\r\n\r\n    function completeTask(uint256 id) public {\r\n        tasks[id].isCompleted = true;\r\n    }\r\n\r\n    function deleteTask(uint256 id) public {\r\n        if (id >= tasks.length) {\r\n            return;\r\n        }\r\n        for (uint i = id; i < tasks.length - 1; i++) {\r\n            tasks[i] = tasks[i + 1];\r\n        }\r\n        tasks.pop();\r\n    }\r\n\r\n    function getTasks() public view returns (Task[] memory) {\r\n        uint256 count = 0;\r\n        for (uint256 i = 0; i < tasks.length; i++) {\r\n            if (tasks[i].user == msg.sender) {\r\n                count++;\r\n            }\r\n        }\r\n\r\n        Task[] memory userTasks = new Task[](count);\r\n        uint256 j = 0;\r\n        for (uint256 i = 0; i < tasks.length; i++) {\r\n            if (tasks[i].user == msg.sender) {\r\n                userTasks[j++] = tasks[i];\r\n            }\r\n        }\r\n\r\n        return userTasks;\r\n    }\r\n\r\n    fallback() external {}\r\n}\r\n"
+    }
+  },
+  "settings": {
+    "optimizer": {
+      "enabled": false,
+      "runs": 200
+    },
+    "outputSelection": {
+      "*": {
+        "*": [
+          "abi",
+          "evm.bytecode",
+          "evm.deployedBytecode",
+          "evm.methodIdentifiers",
+          "metadata",
+          "devdoc",
+          "userdoc",
+          "storageLayout",
+          "evm.gasEstimates"
+        ],
+        "": [
+          "ast"
+        ]
+      }
+    },
+    "metadata": {
+      "useLiteralContent": true
+    }
+  }
+}
