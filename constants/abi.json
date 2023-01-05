@@ -1,0 +1,45 @@
+[
+  {
+    "type": "function",
+    "name": "addTask",
+    "constant": false,
+    "payable": false,
+    "inputs": [{ "type": "string", "name": "_name" }],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "completeTask",
+    "constant": false,
+    "payable": false,
+    "inputs": [{ "type": "uint256", "name": "id" }],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "deleteTask",
+    "constant": false,
+    "payable": false,
+    "inputs": [{ "type": "uint256", "name": "id" }],
+    "outputs": []
+  },
+  {
+    "type": "function",
+    "name": "getTasks",
+    "constant": true,
+    "stateMutability": "view",
+    "payable": false,
+    "inputs": [],
+    "outputs": [
+      {
+        "type": "tuple[]",
+        "components": [
+          { "type": "uint256", "name": "id" },
+          { "type": "string", "name": "name" },
+          { "type": "bool", "name": "isCompleted" },
+          { "type": "address", "name": "user" }
+        ]
+      }
+    ]
+  }
+]
