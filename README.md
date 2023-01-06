@@ -17,3 +17,6 @@ The smart contract and backend are present in [full-dapp](https://github.com/shr
 * Gas efficient.
 
 The frontend has been deployed at https://to-do-dapp.vercel.app/.
+
+## Screenshots
+<img src="https://user-images.githubusercontent.com/58718144/210935265-fd14b52e-cb8f-424f-bb38-899aefe89bb2.png" width="710" />
